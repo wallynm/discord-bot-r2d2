@@ -11,9 +11,9 @@ client.on('ready', () => {
         }
 
         // Certifies that user isnt been mooved
-        if(newMember.channelID !== null && oldMember.channelID !== null) {
-            return false
-        }
+        // if(newMember.channelID !== null && oldMember.channelID !== null) {
+        //     return false
+        // }
         
         const voiceChannel = client.channels.cache.get(newMember.channelID)
         voiceChannel.join().then(connection => {
