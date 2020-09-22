@@ -8,8 +8,12 @@ client.on('ready', () => {
         if(!newMember.channelID) {
             return false
         }
+
+        // Certifies that user isnt been mooved
+        if(newMember.channelID !== null && oldMember.channelID !== null) {
+            return false
+        }
         
-        // if(newMember.guild.name === 'Servidor de Mustache') {
         const voiceChannel = client.channels.cache.get(newMember.channelID)
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=_4SN35o6rLk', { filter: 'audioonly' });
@@ -20,9 +24,6 @@ client.on('ready', () => {
                 voiceChannel.leave();
             }, 10000)
         })
-        
-        // }
-
     })
 });
 
