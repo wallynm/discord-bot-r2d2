@@ -1,3 +1,4 @@
+const http = require('http');
 const Discord = require('discord.js'); 
 const ytdl = require('ytdl-core');
 
