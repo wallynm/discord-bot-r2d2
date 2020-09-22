@@ -14,11 +14,13 @@ client.on('ready', () => {
         voiceChannel.join().then(connection => {
             const stream = ytdl('https://www.youtube.com/watch?v=_4SN35o6rLk', { filter: 'audioonly' });
             const dispatcher = connection.play(stream);
+            dispatcher.setVolume(0.1);
 
             setTimeout(() => {
                 voiceChannel.leave();
             }, 10000)
         })
+        
         // }
 
     })
