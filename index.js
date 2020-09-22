@@ -29,4 +29,4 @@ client.on('ready', () => {
 });
 
 client.login(process.env.DICORD_TOKEN);
-http.createServer(onRequest).listen(process.env.PORT || 80)
+http.createServer().listen(process.env.PORT || 80)
