@@ -6,14 +6,8 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     client.on('voiceStateUpdate', (oldMember, newMember) => {
-        if(!newMember.channelID) {
-            return false
-        }
+        if (!oldMember.voiceChannel && newMember.voiceChannel) {
 
-        // Certifies that user isnt been mooved
-        // if(newMember.channelID !== null && oldMember.channelID !== null) {
-        //     return false
-        // }
         
         const voiceChannel = client.channels.cache.get(newMember.channelID)
         voiceChannel.join().then(connection => {
@@ -25,6 +19,7 @@ client.on('ready', () => {
                 voiceChannel.leave();
             }, 10000)
         })
+    }
     })
 });
 
